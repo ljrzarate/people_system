@@ -12,7 +12,7 @@ This application is intended to be useful to whoever need a system to manage peo
 
 ## Installation Proces
 
-### Mac OS X
+## Mac OS X
 
 * install [homebrew](http://brew.sh/)
   * run `brew install git`
@@ -20,10 +20,21 @@ This application is intended to be useful to whoever need a system to manage peo
   * run `brew install mysql`
 * clone this repo
 * run `bundle install` in the project folder
-* run redis-server
 * make sure the database is up and running
 * run `rake db:create`
 * run `rake db:migrate`
 * run `rake db:seed`
+* gem install mailcatcher
+* run `mailcatcher`
+
+### Running Manually
+
+* run `redis-server`
+* run `rake environment resque:work QUEUE=*`
 * run `rails s`
+
+### Runnung with Foreman
+information [here](http://blog.daviddollar.org/2011/05/06/introducing-foreman.html)
+* gem install foreman
+* foreman start
 
