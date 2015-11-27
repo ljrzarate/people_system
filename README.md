@@ -15,14 +15,15 @@ This application is intended to be useful to whoever need a system to manage peo
 ### Mac OS X
 
 * install [homebrew](http://brew.sh/)
-* run `brew install git`
-* run `brew install redis`
-* run `brew install mysql`
-* clone [the repo](git@github.com:ljrzarate/people_system.git)
+  * run `brew install git`
+  * run `brew install redis`
+  * run `brew install mysql`
+* clone this repo
 * run `bundle install` in the project folder
 * run redis-server
 * make sure the database is up and running
 * run `rake db:create`
 * run `rake db:migrate`
+* run `rake db:seed`
 * run `rails s`
 
