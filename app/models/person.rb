@@ -19,16 +19,30 @@ class Person < ActiveRecord::Base
 
   scope :order_by_full_name, ->{order("first_name, last_name")}
 
+  # Public: Join of first_name and last_name to return the full name of a person.
+  #
+  # Returns the full name String
   def full_name
     "#{first_name} #{last_name}"
   end
 
+  # Public: Get the current time and the date of birth of the person and calculate the age
+  #
+  # Examples
+  #
+  #   Person.first.age
+  #   # => 24
+  #
+  # Returns the age of a person Integer.
   def age
     now = Time.current.utc.to_date
     now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
   end
 
   private
+    # Private: Add error if the birthdate is greater then current date
+    #
+    # Returns the duplicated String.
     def is_valid_birthdate?
       errors.add(:birthdate, 'should be in the past') unless self.birthdate && self.birthdate <= Date.current
     end
