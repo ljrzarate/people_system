@@ -34,6 +34,7 @@ gem 'haml'
 # gem 'capistrano-rails', group: :development
 
 gem "twitter-bootstrap-rails"
+gem "paperclip", "~> 4.3"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

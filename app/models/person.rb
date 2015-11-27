@@ -1,4 +1,10 @@
 class Person < ActiveRecord::Base
+
+  has_attached_file :picture,
+                    url: "/assests/pictures/:id/:style/:basename.:extension",
+                    path: ":rails_root/public/assests/pictures/:id/:style/:basename.:extension",
+                    default_url: "/assests/pictures/missing.png"
+
   GENDERS = [
     "male",
     "female"
@@ -12,6 +18,8 @@ class Person < ActiveRecord::Base
   validates :gender,      presence: true, inclusion: {in: GENDERS}
   validates :birthdate,   presence: true
   validate :is_valid_birthdate?
+  validates_attachment :picture, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
+  validates_with AttachmentSizeValidator, attributes: :picture, less_than: 5.megabytes
 
   scope :order_by_full_name, ->{order("first_name, last_name")}
 
