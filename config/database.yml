@@ -1,0 +1,12 @@
+defaults: &defaults
+  adapter: postgresql
+  host: localhost
+
+development:
+  <<: *defaults
+  database: people_system_development
+
+test:
+  <<: *defaults
+  min_messages: warning #magic sauce
+  database: people_system_test
