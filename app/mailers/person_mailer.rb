@@ -1,4 +1,5 @@
 class PersonMailer < ApplicationMailer
+
   def person_created(person, new_person)
     @person = person
     @new_person = new_person

@@ -21,11 +21,13 @@ This application is intended to be useful to whoever need a system to manage peo
 * clone this repo
 * run `bundle install` in the project folder
 * make sure the database is up and running
+  * Change the `config/database.yml` to use your own configurations
 * run `rake db:create`
 * run `rake db:migrate`
 * run `rake db:seed`
 * gem install mailcatcher
 * run `mailcatcher`
+* open your browser `http://127.0.0.1:1080/`
 
 ### Running Manually
 
