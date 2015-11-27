@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resource :people
+  root "people#index"
+  resources :people
 end

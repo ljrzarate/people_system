@@ -1,0 +1,25 @@
+%h2= @person.full_name
+= form_for person, url: url do |f|
+  %div.form-group
+    = f.label :first_name
+    = f.text_field :first_name, class: "form-control"
+  %div.form-group
+    = f.label :last_name
+    = f.text_field :last_name, class: "form-control"
+  %div.form-group
+    = f.label :email
+    = f.email_field :email, class: "form-control"
+  %div.form-group
+    = f.label :job
+    = f.text_field :job, class: "form-control"
+  %div.form-group
+    = f.label :bio
+    = f.text_area :bio, class: "form-control"
+  %div.form-group
+    = f.label :gender
+    = f.select :gender, Person::GENDERS, class: "form-control"
+  %div.form-group
+    = f.label :birthdate
+    = f.date_field :birthdate, class: "form-control"
+  = f.submit "Save", class: "btn btn-primary"
+  = link_to "See Profile", person_path(person), class: "btn btn-default" unless person.new_record?

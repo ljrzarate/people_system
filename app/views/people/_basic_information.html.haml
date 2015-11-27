@@ -1,0 +1,27 @@
+%table.table.table-user-information
+  %tbody
+    %tr
+      %td First name:
+      %td= person.first_name
+    %tr
+      %td Last name:
+      %td= person.last_name
+    %tr
+      %td Email:
+      %td= link_to person.email, "mailto:#{person.email}"
+    %tr
+      %td Job:
+      %td= person.job.titleize
+    %tr
+      %td Birthdate:
+      %td= person.birthdate
+    %tr
+      %td Age:
+      %td= person.age
+    %tr
+      %td Bio
+      %td= person.bio
+    %tr
+    %tr
+      %td Gender
+      %td= person.gender

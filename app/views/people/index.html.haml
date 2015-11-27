@@ -1,0 +1,13 @@
+%table.table
+  %caption
+    List of people in the system
+  %thead
+    %tr
+      %th first name - last name
+      %th email
+      %th age
+      %th actions
+    %tbody
+      = render partial: "person", collection: @people, as: :person
+
+

@@ -1,4 +1,4 @@
-## This pattern in controllers is following the guides of Growing rails application
+## This pattern in controllers is following the guides of Growing Rails Application Book
 ## this way the controller is as DRY as posible
 class PeopleController < ApplicationController
   def index
@@ -57,10 +57,10 @@ class PeopleController < ApplicationController
 
     def person_params
       person_params = params[:person]
-      person_params ? person_params.permit(:first_name, :last_name, :email, :bio, :gender, :birthdate. :picture) : {}
+      person_params ? person_params.permit(:first_name, :last_name, :email, :bio, :gender, :job, :birthdate, :picture) : {}
     end
 
     def people_scope
-      People.all
+      Person.all.order_by_full_name
     end
 end
