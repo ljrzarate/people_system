@@ -13,22 +13,19 @@
 
 ActiveRecord::Schema.define(version: 20151127024810) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "people", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "job"
-    t.text     "bio"
-    t.string   "gender"
+    t.string   "first_name",           limit: 255
+    t.string   "last_name",            limit: 255
+    t.string   "email",                limit: 255
+    t.string   "job",                  limit: 255
+    t.text     "bio",                  limit: 65535
+    t.string   "gender",               limit: 255
     t.date     "birthdate"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "picture_file_name",    limit: 255
+    t.string   "picture_content_type", limit: 255
+    t.integer  "picture_file_size",    limit: 4
     t.datetime "picture_updated_at"
   end
 

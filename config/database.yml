@@ -1,12 +1,12 @@
 defaults: &defaults
-  adapter: postgresql
+  adapter: mysql
   host: localhost
 
 development:
   <<: *defaults
-  database: people_system_development
+  database: people_system_development_mysql
 
 test:
   <<: *defaults
   min_messages: warning #magic sauce
-  database: people_system_test
+  database: people_system_test_mysql
