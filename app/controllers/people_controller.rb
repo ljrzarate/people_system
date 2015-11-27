@@ -1,5 +1,5 @@
-## This pattern in controllers is following the guides of Growing Rails Application Book
-## this way the controller is as DRY as posible
+# This pattern in controllers is following the guides of Growing Rails Application Book
+# this way the controller is as DRY as posible
 class PeopleController < ApplicationController
   def index
     load_people
@@ -15,7 +15,7 @@ class PeopleController < ApplicationController
 
   def create
     build_person
-    save_person or render :new
+    save_person(perform_email: true) or render :new
   end
 
   def edit
@@ -32,6 +32,7 @@ class PeopleController < ApplicationController
   def destroy
     load_person
     @person.destroy
+    DeletedPersonEmailJob.perform_later(name: @person.full_name, email: @person.email)
     flash[:notice] = "Person deleted successfuly"
     redirect_to people_path
   end
@@ -50,10 +51,14 @@ class PeopleController < ApplicationController
       @person.attributes = person_params
     end
 
-    def save_person
+    def save_person(perform_email: false)
       if @person.save
         flash[:notice] = "Person saved successfuly"
+        NewPersonEmailJob.perform_later(@person.id) if perform_email
         redirect_to @person
+      else
+        flash[:error] = @person.errors.full_messages.to_sentence
+        false
       end
     end
 

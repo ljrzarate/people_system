@@ -1,0 +1,14 @@
+%h3= "Hello #{@person.first_name} #{@person.last_name}"
+
+%p= "please notice that #{@new_person.first_name} #{@new_person.last_name} has joined the application"
+
+%p= "summary of #{@new_person.first_name} #{@new_person.last_name}:"
+
+%ul
+  %li= "Job: #{@new_person.job}"
+  %li= "Email: #{@new_person.email}"
+  %li= "birthdate: #{@new_person.birthdate}"
+
+%strong Regrads,
+%br
+%strong People System

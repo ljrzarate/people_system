@@ -1,14 +1,10 @@
 class Person < ActiveRecord::Base
+  GENDERS = [ "male", "female"]
 
   has_attached_file :picture,
                     url: "/assests/pictures/:id/:style/:basename.:extension",
                     path: ":rails_root/public/assests/pictures/:id/:style/:basename.:extension",
                     default_url: "/assests/pictures/missing.png"
-
-  GENDERS = [
-    "male",
-    "female"
-  ]
 
   validates :first_name,  presence: true, length: { maximum: 75 }
   validates :last_name,   presence: true, length: { maximum: 75 }
@@ -34,6 +30,6 @@ class Person < ActiveRecord::Base
 
   private
     def is_valid_birthdate?
-      errors.add(:birthdate, 'Birthdate should be in the past') unless self.birthdate <= Date.current
+      errors.add(:birthdate, 'should be in the past') unless self.birthdate && self.birthdate <= Date.current
     end
 end

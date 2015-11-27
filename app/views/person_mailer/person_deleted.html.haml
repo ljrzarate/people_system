@@ -1,0 +1,11 @@
+%h3= "Hello #{@person.first_name} #{@person.last_name}"
+
+%p= "please notice that #{@deleled_person_name} has left the application"
+
+%p= "if you want to contact:"
+%p= link_to @deleted_person_email, "mailto:#{@deleted_person_email}"
+
+%strong Regrads,
+%br
+%strong People System
+

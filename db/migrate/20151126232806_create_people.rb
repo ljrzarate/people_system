@@ -8,7 +8,6 @@ class CreatePeople < ActiveRecord::Migration
       t.text :bio
       t.string :gender
       t.date :birthdate
-      t.string :picture
 
       t.timestamps null: false
     end
