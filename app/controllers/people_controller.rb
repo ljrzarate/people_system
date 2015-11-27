@@ -32,6 +32,7 @@ class PeopleController < ApplicationController
   def destroy
     load_person
     @person.destroy
+    flash[:notice] = "Person deleted successfuly"
     redirect_to people_path
   end
 
@@ -51,6 +52,7 @@ class PeopleController < ApplicationController
 
     def save_person
       if @person.save
+        flash[:notice] = "Person saved successfuly"
         redirect_to @person
       end
     end

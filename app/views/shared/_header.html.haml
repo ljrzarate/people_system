@@ -1,0 +1,11 @@
+.navbar.navbar-default.navbar-static-top
+  .container
+    %button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to "PeopleSystem", root_path, class: "navbar-brand"
+    .navbar-collapse.collapse.navbar-responsive-collapse
+      %ul.nav.navbar-nav
+        %li= link_to "People List", people_path
+        %li= link_to "New Person", new_person_path
